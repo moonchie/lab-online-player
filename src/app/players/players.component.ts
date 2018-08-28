@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
 import { Player } from '../player';
-import { PLAYERS } from '../mock-players';
+
 
 @Component({
   selector: 'app-players',
@@ -9,19 +10,25 @@ import { PLAYERS } from '../mock-players';
 })
 
 export class PlayersComponent implements OnInit {
-  // import the Player schema
-  players = PLAYERS;
 
-  //Click even handler
   selectedPlayer: Player;
-  onSelect(player: Player): void{
-    this.selectedPlayer = player;
-  }
 
-  constructor() {}
+  players = [];
+
+
+  constructor(private playerService: HeroService) {}
 
   ngOnInit() {
+    this.getPlayers();
+  }
+
+  getPlayers(): void {
+    this.playerService.getPlayers()
+    .subscribe(players => this.players = players);
+  }
+
+  onSelect(player: Player): void {
+    this.selectedPlayer = player;
   }
 }
-
 

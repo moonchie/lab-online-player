@@ -1,4 +1,3 @@
-<!-- Use pipe here -->
 <h2>My Players</h2>
 <h3>Please select a player to see more details</h3>
 
@@ -12,10 +11,13 @@
 </ul>
 
 <!-- // Div of Selected Player -->
-<div *ngIf = "selectedPlayer">
+<!-- <div *ngIf = "selectedPlayer">
   <h2>{{selectedPlayer.name | uppercase}} Details</h2>
   <div><span>id: </span> {{selectedPlayer.id}} </div>
   <label>name:
     <input [(ngModel)]="selectedPlayer.name" placeholder="name">
   </label>
-</div>
+</div> -->
+
+<!-- //Add in the player detail template with property binding-->
+<app-player-detail [player] = "selectedPlayer"></app-player-detail>

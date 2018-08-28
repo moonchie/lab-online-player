@@ -1,0 +1,21 @@
+<!-- Use pipe here -->
+<h2>My Players</h2>
+<h3>Please select a player to see more details</h3>
+
+<ul class="players">
+  <!-- User ngfor to loop -->
+  <li *ngFor = "let player of players"
+      [class.selected] = "player === selectedPlayer"
+      (click)="onSelect(player)">
+    <span class="badge"> {{player.id}} </span>{{player.name}}
+  </li>
+</ul>
+
+<!-- // Div of Selected Player -->
+<div *ngIf = "selectedPlayer">
+  <h2>{{selectedPlayer.name | uppercase}} Details</h2>
+  <div><span>id: </span> {{selectedPlayer.id}} </div>
+  <label>name:
+    <input [(ngModel)]="selectedPlayer.name" placeholder="name">
+  </label>
+</div>

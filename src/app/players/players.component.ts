@@ -11,7 +11,7 @@ import { Player } from '../player';
 
 export class PlayersComponent implements OnInit {
 
-  selectedPlayer: Player;
+  // selectedPlayer: Player;
 
   players = [];
 
@@ -27,8 +27,8 @@ export class PlayersComponent implements OnInit {
     .subscribe(players => this.players = players);
   }
 
-  onSelect(player: Player): void {
-    this.selectedPlayer = player;
-  }
+  // onSelect(player: Player): void {
+  //   this.selectedPlayer = player;
+  // }
 }
 

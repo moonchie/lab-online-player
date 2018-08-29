@@ -3,10 +3,10 @@
 
 <ul class="players">
   <!-- User ngfor to loop -->
-  <li *ngFor = "let player of players"
-      [class.selected] = "player === selectedPlayer"
-      (click)="onSelect(player)">
-    <span class="badge"> {{player.id}} </span>{{player.name}}
+  <li *ngFor = "let player of players">
+    <a routerLink="/detail/{{player.id}}">
+      <span class="badge"> {{player.id}} </span>{{player.name}}
+    </a>
   </li>
 </ul>
 
@@ -20,4 +20,4 @@
 </div> -->
 
 <!-- //Add in the player detail template with property binding-->
-<app-player-detail [player] = "selectedPlayer"></app-player-detail>
+<!-- <app-player-detail [player] = "selectedPlayer"></app-player-detail> -->
